@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import ProductFeature from './ProductFeature';
 import CustomButton from './CustomButton';
 import ProductTag from './ProductTag';
@@ -24,7 +24,7 @@ const ProductCard = ({ product, selectedProducts, setSelectedProducts }) => {
                     product.features.map((feature, index) => <ProductFeature key={index} feature={feature}></ProductFeature>)
                 }
             </ul>
-            <CustomButton text={"Buy Now"} forBuying={true} onClick={() => {handleSelectedProducts(product)}} disabled={isSelected}></CustomButton>
+            <CustomButton text={"Buy Now"} forBuying={true} onClick={() => { handleSelectedProducts(product) }} disabled={isSelected}></CustomButton>
         </div>
     );
 };

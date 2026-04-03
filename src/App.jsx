@@ -1,5 +1,5 @@
 import { Suspense, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import './App.css'
 import Banner from './components/header/banner/Banner';
 import CompanyInfo from './components/header/companyInfo/CompanyInfo';

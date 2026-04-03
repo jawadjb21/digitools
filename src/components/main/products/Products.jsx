@@ -10,7 +10,6 @@ const Products = ({ productsPromise, selectedProducts, setSelectedProducts }) =>
     
     const [selectedButton, setSelectedButton] = useState("all");
     
-    console.log(selectedButton);
     return (
         <div className='container mx-auto my-10'>
             <div className='flex flex-col justify-center items-center text-center gap-3'>

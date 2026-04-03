@@ -1,0 +1,18 @@
+{
+  "company": {
+    "name": "DigiTools",
+    "tagline": "Supercharge Your Digital Workflow",
+    "rating": 4.8,
+    "totalReviews": 12400,
+    "activeUsers": 85000,
+    "totalProducts": 320,
+    "satisfactionRate": 98,
+    "founded": 2019,
+    "stats": [
+      { "id": 1, "label": "Active Users", "value": "85K+", "icon": "👥" },
+      { "id": 2, "label": "Products", "value": "320+", "icon": "📦" },
+      { "id": 3, "label": "Rating", "value": "4.8/5", "icon": "⭐" },
+      { "id": 4, "label": "Satisfaction", "value": "98%", "icon": "😊" }
+    ]
+  }
+}

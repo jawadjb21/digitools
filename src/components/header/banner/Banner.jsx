@@ -3,6 +3,7 @@ import { CiPlay1 } from "react-icons/ci";
 import SimpleParallax from "simple-parallax-js";
 import banner from "../../../assets/banner.png";
 import CustomButton from '../../ui/CustomButton';
+import OutlineButton from '../../ui/OutlineButton';
 const Banner = () => {
     return (
         <div className="hero bg-base-200 min-h-screen mx-auto text-center">
@@ -25,8 +26,8 @@ const Banner = () => {
                     </p>
                     <div className='flex justify-center items-center gap-1'>
                         <CustomButton text={"Explore Products"}></CustomButton>
-                        <button className="btn border rounded-2xl border-[#4F39F6] bg-linear-to-r from-[#4F39F6] to-[#627382] bg-clip-text text-transparent"><CiPlay1 className='text-[#4F39F6]' />
-                            Watch Demo</button>
+                        <OutlineButton><CiPlay1 className='text-[#4F39F6]' />
+                            Watch Demo</OutlineButton>
                     </div>
                 </div>
             </div>

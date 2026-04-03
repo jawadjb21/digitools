@@ -25,7 +25,7 @@ const Banner = () => {
                         software—all in one place. Start creating faster today.
                     </p>
                     <div className='flex justify-center items-center gap-1'>
-                        <CustomButton text={"Explore Products"}></CustomButton>
+                        <CustomButton text={"Explore Products"} forBuying={false}></CustomButton>
                         <OutlineButton><CiPlay1 className='text-[#4F39F6]' />
                             Watch Demo</OutlineButton>
                     </div>

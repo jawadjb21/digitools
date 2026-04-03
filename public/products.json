@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Starter",
+    "description": "Perfect for individuals just getting started.",
+    "price": 0,
+    "period": "one-time",
+    "tag": "Free Forever",
+    "tagType": "new",
+    "features": ["5 templates", "Basic editor", "Export to PDF", "Email support"],
+    "icon": "🆓"
+  },
+  {
+    "id": 2,
+    "name": "Basic",
+    "description": "Great for freelancers and job seekers.",
+    "price": 9.99,
+    "period": "monthly",
+    "tag": "New",
+    "tagType": "new",
+    "features": ["20 templates", "ATS optimization", "Export to PDF", "Priority email support"],
+    "icon": "⚡"
+  },
+  {
+    "id": 3,
+    "name": "Pro",
+    "description": "Everything you need to land your dream job.",
+    "price": 19.99,
+    "period": "monthly",
+    "tag": "Popular",
+    "tagType": "popular",
+    "features": ["100+ templates", "ATS optimization", "Export to PDF & Word", "Cover letter builder", "24/7 support"],
+    "icon": "🚀"
+  },
+  {
+    "id": 4,
+    "name": "Pro Annual",
+    "description": "All Pro features at a discounted yearly rate.",
+    "price": 159.99,
+    "period": "yearly",
+    "tag": "Best Value",
+    "tagType": "best seller",
+    "features": ["100+ templates", "ATS optimization", "Export to PDF & Word", "Cover letter builder", "24/7 support", "2 months free"],
+    "icon": "💎"
+  },
+  {
+    "id": 5,
+    "name": "Team",
+    "description": "Collaborate with your hiring team effortlessly.",
+    "price": 49.99,
+    "period": "monthly",
+    "tag": "Best Seller",
+    "tagType": "best seller",
+    "features": ["Everything in Pro", "Up to 10 members", "Team dashboard", "Shared templates", "Admin controls"],
+    "icon": "👥"
+  },
+  {
+    "id": 6,
+    "name": "Team Annual",
+    "description": "Full team features billed annually.",
+    "price": 399.99,
+    "period": "yearly",
+    "tag": "Save 33%",
+    "tagType": "popular",
+    "features": ["Everything in Team", "Up to 10 members", "Priority onboarding", "Dedicated account manager", "2 months free"],
+    "icon": "🏆"
+  },
+  {
+    "id": 7,
+    "name": "Enterprise",
+    "description": "Custom solutions for large organizations.",
+    "price": 199.99,
+    "period": "monthly",
+    "tag": "New",
+    "tagType": "new",
+    "features": ["Unlimited members", "Custom templates", "SSO & SAML", "SLA guarantee", "Dedicated support", "Custom integrations"],
+    "icon": "🏢"
+  },
+  {
+    "id": 8,
+    "name": "Student",
+    "description": "Affordable plan built for students.",
+    "price": 4.99,
+    "period": "monthly",
+    "tag": "Popular",
+    "tagType": "popular",
+    "features": ["50 templates", "ATS optimization", "Export to PDF", "Career tips & guides", "Email support"],
+    "icon": "🎓"
+  }
+]

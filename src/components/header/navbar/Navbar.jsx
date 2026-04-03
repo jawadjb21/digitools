@@ -5,7 +5,7 @@ import LoginButton from '../../ui/LoginButton';
 import CustomButton from '../../ui/CustomButton';
 
 
-const Navbar = ({ navLinksPromise }) => {
+const Navbar = ({ navLinksPromise, selectedProducts }) => {
     const navLinks = use(navLinksPromise);
     return (
         <div className='sticky z-100 top-0 flex justify-between items-center mx-auto container'>
@@ -24,7 +24,11 @@ const Navbar = ({ navLinksPromise }) => {
                 {navLinks.map(link => link.name !== 'Login' && <Link key={link.id} link={link}></Link>)}
             </ul>
             <div className='flex justify-between items-center'>
-                <button className='btn btn-ghost'><IoIosCart /></button>
+                <div className="indicator">
+                    {selectedProducts.length > 0 ? <span className="indicator-item badge badge-secondary">{selectedProducts.length}</span>:""}
+                    <button className='btn btn-ghost'><IoIosCart /></button>
+                </div>
+
                 <div className='hidden md:flex justify-between items-center gap-1'>
                     <LoginButton></LoginButton>
                     <CustomButton text={"Get Started"}></CustomButton>

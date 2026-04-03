@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import './App.css'
 import Banner from './components/header/banner/Banner';
@@ -31,17 +31,17 @@ const fetchProducts = async () => {
 const productsPromise = fetchProducts();
 
 function App() {
-
+  const [selectedProducts, setSelectedProducts] = useState([]);
   return (
     <>
       <header className='my-2.5 text-center px-5'>
-        <Navbar navLinksPromise={navLinksPromise}></Navbar>
+        <Navbar navLinksPromise={navLinksPromise} selectedProducts={selectedProducts}></Navbar>
         <Banner></Banner>
         <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>
       </header>
       <main>
         <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
-          <Products productsPromise={productsPromise}></Products>
+          <Products productsPromise={productsPromise} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}></Products>
           <ToastContainer />
         </Suspense>
       </main>

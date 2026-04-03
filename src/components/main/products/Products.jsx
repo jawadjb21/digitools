@@ -5,11 +5,11 @@ import AllProducts from './AllProducts/AllProducts';
 import SelectedProducts from './SelectedProducts/SelectedProducts';
 
 
-const Products = ({ productsPromise }) => {
+const Products = ({ productsPromise, selectedProducts, setSelectedProducts }) => {
     const products = use(productsPromise);
     
     const [selectedButton, setSelectedButton] = useState("all");
-    const [selectedProducts, setSelectedProducts] = useState([]);
+    
     console.log(selectedButton);
     return (
         <div className='container mx-auto my-10'>

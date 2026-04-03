@@ -1,7 +1,10 @@
+import { Suspense } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import './App.css'
 import Banner from './components/header/banner/Banner';
-import CompanyInfo from './components/header/comapnyInfo/CompanyInfo';
+import CompanyInfo from './components/header/companyInfo/CompanyInfo';
 import Navbar from './components/header/navbar/Navbar'
+import Products from './components/main/products/Products';
 
 const fetchNavLinks = async () => {
   const navLinksRes = await fetch("/navLinks.json");
@@ -19,6 +22,14 @@ const fetchCompanyInfo = async () => {
 
 const companyInfoPromise = fetchCompanyInfo();
 
+const fetchProducts = async () => {
+  const productsRes = await fetch("/products.json");
+  const productsJSON = await productsRes.json();
+  return productsJSON;
+}
+
+const productsPromise = fetchProducts();
+
 function App() {
 
   return (
@@ -28,6 +39,15 @@ function App() {
         <Banner></Banner>
         <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>
       </header>
+      <main>
+        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+          <Products productsPromise={productsPromise}></Products>
+          <ToastContainer />
+        </Suspense>
+      </main>
+      <footer>
+
+      </footer>
     </>
   )
 }

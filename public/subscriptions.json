@@ -8,7 +8,9 @@
     "tag": "Free Forever",
     "tagType": "new",
     "features": ["5 templates", "Basic editor", "Export to PDF", "Email support"],
-    "icon": "🆓"
+    "icon": "🆓",
+    "next": 2,
+    "previous": 4
   },
   {
     "id": 2,
@@ -19,7 +21,9 @@
     "tag": "New",
     "tagType": "new",
     "features": ["20 templates", "ATS optimization", "Export to PDF", "Priority email support"],
-    "icon": "⚡"
+    "icon": "⚡",
+    "next": 3,
+    "previous": 1
   },
   {
     "id": 3,
@@ -30,7 +34,9 @@
     "tag": "Popular",
     "tagType": "popular",
     "features": ["100+ templates", "ATS optimization", "Export to PDF & Word", "Cover letter builder", "24/7 support"],
-    "icon": "🚀"
+    "icon": "🚀",
+    "next": 4,
+    "previous": 2
   },
   {
     "id": 4,
@@ -41,6 +47,8 @@
     "tag": "Best Seller",
     "tagType": "best seller",
     "features": ["Unlimited members", "Custom templates", "SSO & SAML", "SLA guarantee", "Dedicated support", "Custom integrations"],
-    "icon": "🏢"
+    "icon": "🏢",
+    "next": 1,
+    "previous": 3
   }
 ]

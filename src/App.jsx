@@ -41,7 +41,7 @@ const fetchSteps = async () => {
 
 const stepsPromise = fetchSteps();
 
-const fetchSubscriptions =  async () => {
+const fetchSubscriptions = async () => {
   const subscriptionsRes = await fetch("/subscriptions.json");
   const subcriptionsJSON = await subscriptionsRes.json();
   return subcriptionsJSON;
@@ -55,30 +55,33 @@ function App() {
   const [selectedSubscriptions, setSelectedSubscriptions] = useState([]);
   return (
     <>
-      <header className='my-2.5 text-center px-5'>
-        <Navbar navLinksPromise={navLinksPromise} selectedProducts={selectedProducts}></Navbar>
-        <Banner></Banner>
-        <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>
-      </header>
-      
-      <main>
-        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
-          <Products productsPromise={productsPromise} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}></Products>
-          <ToastContainer />
-        </Suspense>
-        
-        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
-          <Steps stepsPromise={stepsPromise}></Steps>
-        </Suspense>
+      <body>
+        <header>
+          <Navbar navLinksPromise={navLinksPromise} selectedProducts={selectedProducts}></Navbar>
+          <Banner></Banner>
+          <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>
+        </header>
 
-        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
-          <Subscriptions subscriptionsPromise={subscriptionsPromise} selectedSubscriptions={selectedSubscriptions} setSelectedSubscriptions={setSelectedSubscriptions}></Subscriptions>
-        </Suspense>
-      </main>
+        <main>
+          <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+            <Products productsPromise={productsPromise} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}></Products>
+            <ToastContainer />
+          </Suspense>
 
-      <footer>
+          <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+            <Steps stepsPromise={stepsPromise}></Steps>
+          </Suspense>
 
-      </footer>
+          <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+            <Subscriptions subscriptionsPromise={subscriptionsPromise} selectedSubscriptions={selectedSubscriptions} setSelectedSubscriptions={setSelectedSubscriptions}></Subscriptions>
+          </Suspense>
+        </main>
+
+        <footer>
+
+        </footer>
+
+      </body>
     </>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from "react-toastify";
+import { FaCheckCircle } from "react-icons/fa";
 import ProductFeature from './ProductFeature';
 import CustomButton from './CustomButton';
 import ProductTag from './ProductTag';
@@ -25,7 +26,10 @@ const ProductCard = ({ product, selectedProducts, setSelectedProducts }) => {
                     product.features.map((feature, index) => <ProductFeature key={index} feature={feature}></ProductFeature>)
                 }
             </ul>
-            <CustomButton text={"Buy Now"} forBuying={true} onClick={() => { handleSelectedProducts(product) }} disabled={isSelected}></CustomButton>
+
+            {
+                !isSelected ? <CustomButton text={"Buy Now"} forBuying={true} onClick={() => { handleSelectedProducts(product) }} disabled={isSelected}></CustomButton> : <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100' />Subscribed</button>
+            }
         </div>
     );
 };

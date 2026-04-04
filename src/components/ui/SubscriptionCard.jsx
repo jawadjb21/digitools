@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from "react-toastify";
+import { FaCheckCircle } from "react-icons/fa";
 import ProductFeature from './ProductFeature';
 import CustomButton from './CustomButton';
 import ProductTag from './ProductTag';
@@ -26,7 +27,7 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
                 }
             </ul>
             {
-                !isSelected ? <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} disabled={isSelected}></CustomButton> : <button class="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled>Subscribed</button>
+                !isSelected ? <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} disabled={isSelected}></CustomButton> : <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100'/>Subscribed</button>
             }
         </div>
     )

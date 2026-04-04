@@ -15,7 +15,7 @@ const SelectedProducts = ({ selectedProducts, setSelectedProducts }) => {
                 selectedProducts.map(product => <SelectedProductCard key={product.id} product={product} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}></SelectedProductCard>) : <div className='flex flex-col justify-center items-center text-center col-span-full p-5 mx-auto'><h2 className='font-bold text-3xl'>No service purchased</h2><p className='font-semibold text-xl text-zinc-500'>Please purchase a service.</p></div>
             }
             {
-                selectedProducts.length > 0 && <div className='flex justify-between items-center w-full'><span className='font-bold text-2xl'>Total:</span><span className='font-bold text-2xl'>{`$${total[0]}`}</span></div>
+                selectedProducts.length > 0 && <div className='flex justify-between items-center w-full'><span className='font-bold text-2xl'>Total:</span><span className='font-bold text-2xl'>{`$${total[0].toFixed(2)}`}</span></div>
             }
         </div>
 

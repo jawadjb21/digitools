@@ -6,6 +6,7 @@ import CompanyInfo from './components/header/companyInfo/CompanyInfo';
 import Navbar from './components/header/navbar/Navbar'
 import Products from './components/main/products/Products';
 import Steps from './components/main/steps/Steps';
+import Subscriptions from './components/main/pricing/Subscriptions';
 
 const fetchNavLinks = async () => {
   const navLinksRes = await fetch("/navLinks.json");
@@ -40,9 +41,18 @@ const fetchSteps = async () => {
 
 const stepsPromise = fetchSteps();
 
+const fetchSubscriptions =  async () => {
+  const subscriptionsRes = await fetch("/subscriptions.json");
+  const subcriptionsJSON = await subscriptionsRes.json();
+  return subcriptionsJSON;
+}
+
+const subscriptionsPromise = fetchSubscriptions();
+
 
 function App() {
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [selectedSubscriptions, setSelectedSubscriptions] = useState([]);
   return (
     <>
       <header className='my-2.5 text-center px-5'>
@@ -59,6 +69,10 @@ function App() {
         
         <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
           <Steps stepsPromise={stepsPromise}></Steps>
+        </Suspense>
+
+        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+          <Subscriptions subscriptionsPromise={subscriptionsPromise} selectedSubscriptions={selectedSubscriptions} setSelectedSubscriptions={setSelectedSubscriptions}></Subscriptions>
         </Suspense>
       </main>
 

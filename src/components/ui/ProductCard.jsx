@@ -12,7 +12,7 @@ const ProductCard = ({ product, selectedProducts, setSelectedProducts }) => {
     const handleSelectedProducts = (product) => {
         const newSelectedProducts = [...selectedProducts, product];
         setSelectedProducts(newSelectedProducts);
-        toast.success(`${product.name} has been selected!`);
+        toast.success(`${product.name} has been added to card!`);
     }
     return (
         <div className='relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 bg-white shadow-sm hover:shadow-md transition-shadow'>
@@ -28,7 +28,7 @@ const ProductCard = ({ product, selectedProducts, setSelectedProducts }) => {
             </ul>
 
             {
-                !isSelected ? <CustomButton text={"Buy Now"} forBuying={true} onClick={() => { handleSelectedProducts(product) }} disabled={isSelected}></CustomButton> : <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100' />Subscribed</button>
+                !isSelected ? <CustomButton text={"Buy Now"} forBuying={true} onClick={() => { handleSelectedProducts(product) }}></CustomButton> : <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100' />Added</button>
             }
         </div>
     );

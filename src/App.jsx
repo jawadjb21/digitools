@@ -5,6 +5,7 @@ import Banner from './components/header/banner/Banner';
 import CompanyInfo from './components/header/companyInfo/CompanyInfo';
 import Navbar from './components/header/navbar/Navbar'
 import Products from './components/main/products/Products';
+import Steps from './components/main/steps/Steps';
 
 const fetchNavLinks = async () => {
   const navLinksRes = await fetch("/navLinks.json");
@@ -30,6 +31,16 @@ const fetchProducts = async () => {
 
 const productsPromise = fetchProducts();
 
+
+const fetchSteps = async () => {
+  const stepsRes = await fetch("/steps.json")
+  const stepsJSON = await stepsRes.json();
+  return stepsJSON;
+}
+
+const stepsPromise = fetchSteps();
+
+
 function App() {
   const [selectedProducts, setSelectedProducts] = useState([]);
   return (
@@ -39,12 +50,18 @@ function App() {
         <Banner></Banner>
         <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>
       </header>
+      
       <main>
         <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
           <Products productsPromise={productsPromise} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}></Products>
           <ToastContainer />
         </Suspense>
+        
+        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+          <Steps stepsPromise={stepsPromise}></Steps>
+        </Suspense>
       </main>
+
       <footer>
 
       </footer>

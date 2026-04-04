@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Create Account",
+    "icon": "👤",
+    "description": "Sign up with your email or continue with Google. It only takes 30 seconds."
+  },
+  {
+    "id": 2,
+    "name": "Choose a Plan",
+    "icon": "💳",
+    "description": "Browse our range of tools and packages. Pick the one that fits your needs and budget."
+  },
+  {
+    "id": 3,
+    "name": "Start Creating",
+    "icon": "⚡",
+    "description": "Get instant access to all your tools and start boosting your productivity today."
+  }
+]

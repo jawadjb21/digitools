@@ -5,10 +5,10 @@ import { FaTwitter, FaYoutube, FaFacebook } from "react-icons/fa";
 const Footer2 = () => {
     return (
         <>
-            <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 container mx-auto">
+            <footer className="footer sm:footer-horizontal bg-blue-950 text-white p-10 mx-auto">
                 <aside className='place-items-center text-center md:place-items-start md:text-left'>
                     <h2 className='bg-linear-to-r from-[#4F39F6] to-[#627382] bg-clip-text inline-block text-transparent font-bold text-2xl md:text-4xl pb-1'>DigiTools</h2>
-                    <p className='text-zinc-500 w-2/3'>Premium digital tools for creators, professionals, and businesses. Work smarter with our suite of powerful tools.</p>
+                    <p className='text-zinc-300 w-2/3'>Premium digital tools for creators, professionals, and businesses. Work smarter with our suite of powerful tools.</p>
                 </aside>
                 <div className='grid grid-cols-3 gap-6 col-span-full md:col-span-1 md:contents'>
                     <nav className='flex flex-col'>
@@ -41,8 +41,8 @@ const Footer2 = () => {
                     </div>
                 </nav>
             </footer>
-            <hr className='container mx-auto text-gray-300' />
-            <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4 container mx-auto">
+            <hr className='mx-auto text-gray-300' />
+            <footer className="footer sm:footer-horizontal footer-center bg-blue-950 text-white p-4 mx-auto">
                 <aside>
                     <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
                 </aside>

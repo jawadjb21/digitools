@@ -55,33 +55,30 @@ function App() {
   const [selectedSubscriptions, setSelectedSubscriptions] = useState([]);
   return (
     <>
-      <body>
-        <header>
-          <Navbar navLinksPromise={navLinksPromise} selectedProducts={selectedProducts}></Navbar>
-          <Banner></Banner>
-          <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>
-        </header>
+      <header>
+        <Navbar navLinksPromise={navLinksPromise} selectedProducts={selectedProducts}></Navbar>
+        <Banner></Banner>
+        <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>
+      </header>
 
-        <main>
-          <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
-            <Products productsPromise={productsPromise} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}></Products>
-            <ToastContainer />
-          </Suspense>
+      <main>
+        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+          <Products productsPromise={productsPromise} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}></Products>
+          <ToastContainer />
+        </Suspense>
 
-          <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
-            <Steps stepsPromise={stepsPromise}></Steps>
-          </Suspense>
+        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+          <Steps stepsPromise={stepsPromise}></Steps>
+        </Suspense>
 
-          <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
-            <Subscriptions subscriptionsPromise={subscriptionsPromise} selectedSubscriptions={selectedSubscriptions} setSelectedSubscriptions={setSelectedSubscriptions}></Subscriptions>
-          </Suspense>
-        </main>
+        <Suspense fallback={<span className="loading loading-infinity loading-xl"></span>}>
+          <Subscriptions subscriptionsPromise={subscriptionsPromise} selectedSubscriptions={selectedSubscriptions} setSelectedSubscriptions={setSelectedSubscriptions}></Subscriptions>
+        </Suspense>
+      </main>
 
-        <footer>
+      <footer>
 
-        </footer>
-
-      </body>
+      </footer>
     </>
   )
 }

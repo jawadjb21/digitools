@@ -18,7 +18,7 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
             {
                 !carousel ?
                     <div id={subscription.id} className='relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 bg-white shadow-sm hover:shadow-md transition-shadow'>
-                        <button className='btn btn-ghost text-2xl rounded-2xl bg-[#e7e8ef]'>{subscription.icon}</button>
+                        <span className='text-2xl rounded-full bg-[#e7e8ef] p-3'>{subscription.icon}</span>
                         <h5 className='font-bold text-xl text-zinc-800'>{subscription.name}</h5>
                         <p className='font-medium text-zinc-500'>{subscription.description}</p>
                         <p className='text-zinc-400 text-sm'>{`$`}<span className='font-bold text-2xl text-zinc-800'>{subscription.price}</span>{`/${subscription.period}`}</p>
@@ -31,7 +31,7 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
                     </div> :
                     <div className='carousel-item shrink-0 w-full px-4'>
                         <div id={subscription.id} className='relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 bg-white shadow-sm hover:shadow-md transition-shadow'>
-                            <button className='btn btn-ghost text-2xl rounded-2xl bg-[#e7e8ef]'>{subscription.icon}</button>
+                            <span className='text-2xl rounded-full bg-[#e7e8ef] p-3'>{subscription.icon}</span>
                             <h5 className='font-bold text-xl text-zinc-800'>{subscription.name}</h5>
                             <p className='font-medium text-zinc-500'>{subscription.description}</p>
                             <p className='text-zinc-400 text-sm'>{`$`}<span className='font-bold text-2xl text-zinc-800'>{subscription.price}</span>{`/${subscription.period}`}</p>

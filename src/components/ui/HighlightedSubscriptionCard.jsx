@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { toast } from "react-toastify";
 import { FaCheckCircle } from "react-icons/fa";
 import ProductFeature from './ProductFeature';
@@ -8,11 +7,12 @@ import IconDisplay from './IconDisplay';
 
 
 const HighlightedSubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubscriptions, carousel }) => {
-    const [isSelected, setIsSelected] = useState(false);
+    
+    const isSelected = selectedSubscriptions.some(sub => sub.id === subscription.id);
+
     const handleSelectedSubscriptions = (subscription) => {
         const newSelectedSubscriptions = [...selectedSubscriptions, subscription];
         setSelectedSubscriptions(newSelectedSubscriptions);
-        setIsSelected(true);
         toast.success(`${subscription.name} has been selected!`);
     }
     const card = (

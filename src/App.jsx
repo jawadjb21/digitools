@@ -55,7 +55,7 @@ function App() {
   const [selectedSubscriptions, setSelectedSubscriptions] = useState([]);
   return (
     <>
-      <header>
+      <header className='my-3'>
         <Navbar navLinksPromise={navLinksPromise} selectedProducts={selectedProducts}></Navbar>
         <Banner></Banner>
         <CompanyInfo companyInfoPromise={companyInfoPromise}></CompanyInfo>

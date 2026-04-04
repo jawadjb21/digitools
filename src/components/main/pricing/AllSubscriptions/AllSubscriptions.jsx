@@ -1,8 +1,8 @@
-import React from 'react';
 import SubscriptionCard from '../../../ui/SubscriptionCard';
 import HighlightedSubscriptionCard from '../../../ui/HighlightedSubscriptionCard';
 
 const AllSubscriptions = ({ subscriptions, selectedSubscriptions, setSelectedSubscriptions }) => {
+    
     return (
         <>
             <div className='hidden md:grid md:grid-cols-4 gap-y-3 md:gap-10 place-items-center mx-auto md:max-w-5xl px-5 mt-5'>

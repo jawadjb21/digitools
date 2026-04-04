@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { toast } from "react-toastify";
 import { FaCheckCircle } from "react-icons/fa";
 import ProductFeature from './ProductFeature';
@@ -8,11 +7,13 @@ import IconDisplay from './IconDisplay';
 
 const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubscriptions, carousel }) => {
 
-    const [isSelected, setIsSelected] = useState(false);
+    const isSelected = selectedSubscriptions.some(sub => sub.id === subscription.id)
     const handleSelectedSubscriptions = (subscription) => {
-        const newSelectedSubscriptions = [...selectedSubscriptions, subscription];
+        const newSelectedSubscriptions = [...selectedSubscriptions];
+        if (!newSelectedSubscriptions.includes(subscription)) {
+            newSelectedSubscriptions.push(subscription);
+        }
         setSelectedSubscriptions(newSelectedSubscriptions);
-        setIsSelected(true);
         toast.success(`${subscription.name} has been selected!`);
     }
     const card = (
@@ -27,7 +28,7 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
                 }
             </ul>
             {
-                !isSelected ? <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} disabled={isSelected}></CustomButton> : <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100'/>Subscribed</button>
+                !isSelected ? <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} disabled={isSelected}></CustomButton> : <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100' />Subscribed</button>
             }
         </div>
     )

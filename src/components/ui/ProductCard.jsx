@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { toast } from "react-toastify";
 import { FaCheckCircle } from "react-icons/fa";
 import ProductFeature from './ProductFeature';
@@ -7,11 +6,12 @@ import ProductTag from './ProductTag';
 import IconDisplay from './IconDisplay';
 
 const ProductCard = ({ product, selectedProducts, setSelectedProducts }) => {
-    const [isSelected, setIsSelected] = useState(false);
+    
+    const isSelected = selectedProducts.some(prod => prod.id === product.id);
+
     const handleSelectedProducts = (product) => {
         const newSelectedProducts = [...selectedProducts, product];
         setSelectedProducts(newSelectedProducts);
-        setIsSelected(true);
         toast.success(`${product.name} has been selected!`);
     }
     return (

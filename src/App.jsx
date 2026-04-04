@@ -7,6 +7,8 @@ import Navbar from './components/header/navbar/Navbar'
 import Products from './components/main/products/Products';
 import Steps from './components/main/steps/Steps';
 import Subscriptions from './components/main/pricing/Subscriptions';
+import Footer2 from './components/footer/Footer2';
+import Footer1 from './components/footer/Footer1';
 
 const fetchNavLinks = async () => {
   const navLinksRes = await fetch("/navLinks.json");
@@ -77,7 +79,8 @@ function App() {
       </main>
 
       <footer>
-
+        <Footer1></Footer1>
+        <Footer2></Footer2>
       </footer>
     </>
   )

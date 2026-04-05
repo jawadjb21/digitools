@@ -1,16 +1,23 @@
-# React + Vite
+# DigiTools
+    DigiTools is a modern web platform where users can browse, purchase, and manage digital products and subscription plans — all in one place
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features
 
-Currently, two official plugins are available:
+## Product Catalog: 
+    - Browse a curated collection of premium digital products, each with detailed information and tags.
+    - Add products to your cart with one click, and see the cart count update live in the navbar.
+    - Switch between "Products" and "Cart" to manage selections, removal of products and checkout.
+## Subscription Plans:
+    - Choose from flexible pricing plans: Starter, Basic, Pro, and Enterprise.
+    - The "Popular" plan is visually highlighted with a gradient card.
+    - Carousel on mobile for easy navigation between plans.
+    - Only one active subscription allowed at a time, with warnings for invalid selections.
+    - Unsubscribe at any time directly from the card.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Tech Stack
+| Technology | Purpose |
+|---|---|
+| React 19 | UI framework with Suspense and the `use()` hook for data fetching |
+| Tailwind CSS | Utility-first styling |
+| DaisyUI | Pre-built UI components (navbar, cards, carousel, badges) |
+| React Icons | Icon library |

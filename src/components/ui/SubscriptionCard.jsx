@@ -13,13 +13,17 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
     if (selectedSubscriptions.length > 0) {
         isAnySelected = true;
     }
-    const handleSelectedSubscriptions = (subscription) => {
+    const handleSubscription = (subscription) => {
         if (isAnySelected) {
             toast.warning(`You already have a subscription!`);
         } else {
             setSelectedSubscriptions([subscription]);
-            toast.success(`Subscribed to ${subscription.name} !`);
+            toast.success(`Subscribed to ${subscription.name} plan!`);
         }
+    }
+    const handleUnsubscribe  = (subscription) => {
+        setSelectedSubscriptions([]);
+        toast.success(`Unsubscribed from ${subscription.name}`)
     }
     const card = (
         <div id={subscription.id} className={`relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 ${subscription.tagType !== "popular" ? "bg-white" : "bg-linear-to-r from-[#4F39F6] to-[#627382]"} shadow-sm hover:shadow-md transition-shadow`}>
@@ -34,8 +38,8 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
             </ul>
             {
                 !isThisSelected ?
-                    <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} popularSubscription={subscription.tag === "popular"}></CustomButton> :
-                    <button className="btn rounded-2xl w-full bg-red-500 text-emerald-100" disabled>Unsubscribe</button>
+                    <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSubscription(subscription)} popularSubscription={subscription.tag === "popular"}></CustomButton> :
+                    <button className="btn rounded-2xl w-full bg-red-500 text-emerald-100" onClick={() => {handleUnsubscribe(subscription)}}>Unsubscribe</button>
             }
         </div>
     );

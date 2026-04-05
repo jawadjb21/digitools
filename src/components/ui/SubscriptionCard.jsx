@@ -18,54 +18,54 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
             toast.warning(`You already have a subscription!`);
         } else {
             setSelectedSubscriptions([subscription]);
-            toast.success(`Subscribed to ${subscription.name} plan!`);
+            toast.success(`Subscribed to ${subscription.name} !`);
         }
     }
     const card = (
-        <div id={subscription.id} className='relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 bg-white shadow-sm hover:shadow-md transition-shadow'>
+        <div id={subscription.id} className={`relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 ${subscription.tagType !== "popular" ? "bg-white" : "bg-linear-to-r from-[#4F39F6] to-[#627382]"} shadow-sm hover:shadow-md transition-shadow`}>
             <IconDisplay icon={subscription.icon}></IconDisplay>
-            <h5 className='font-bold text-xl text-zinc-800'>{subscription.name}</h5>
-            <p className='font-medium text-zinc-500'>{subscription.description}</p>
-            <p className='text-zinc-400 text-sm'>{`$`}<span className='font-bold text-2xl text-zinc-800'>{subscription.price}</span>{`/${subscription.period}`}</p>
+            <h5 className={`font-bold text-xl ${subscription.tagType !== "popular" ? "text-zinc-800" : "text-white"}`}>{subscription.name}</h5>
+            <p className={`font-medium ${subscription.tagType !== "popular" ? "text-zinc-500" : "text-white"}`}>{subscription.description}</p>
+            <p className={`${subscription.tagType !== "popular" ? "text-zinc-400" : "text-white"} text-sm`}>{`$`}<span className={`font-bold text-2xl ${subscription.tagType !== "popular" ? "text-zinc-800" : "text-white"}`}>{subscription.price}</span>{`/${subscription.period}`}</p>
             <ul className='list-none h-full'>
                 {
-                    subscription.features.map((feature, index) => <ProductFeature key={index} feature={feature}></ProductFeature>)
+                    subscription.features.map((feature, index) => <ProductFeature key={index} feature={feature} popularSubscription={subscription.tagType === "popular"}></ProductFeature>)
                 }
             </ul>
             {
                 !isThisSelected ?
-                    <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)}></CustomButton> :
-                    <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100' />Subscribed</button>
+                    <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} popularSubscription={subscription.tag === "popular"}></CustomButton> :
+                    <button className="btn rounded-2xl w-full bg-red-500 text-emerald-100" disabled>Unsubscribe</button>
             }
         </div>
     );
 
-    const popularCard = (
-        <div id={subscription.id} className='relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 bg-linear-to-r from-[#4F39F6] to-[#627382] shadow-sm hover:shadow-md transition-shadow'>
-            <ProductTag tag={subscription.tagType} popularSubscription={true}></ProductTag>
-            <IconDisplay icon={subscription.icon}></IconDisplay>
-            <h5 className='font-bold text-xl text-white'>{subscription.name}</h5>
-            <p className='font-medium text-white'>{subscription.description}</p>
-            <p className='text-white text-sm'>{`$`}<span className='font-bold text-2xl text-white'>{subscription.price}</span>{`/${subscription.period}`}</p>
-            <ul className='list-none h-full'>
-                {
-                    subscription.features.map((feature, index) => <ProductFeature key={index} feature={feature} popularSubscription={true}></ProductFeature>)
-                }
-            </ul>
-            {
-                !isThisSelected ?
-                    <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} popularSubscription={true}></CustomButton> :
-                    <button className="btn rounded-2xl w-full bg-green-500 text-emerald-100" disabled><FaCheckCircle className='text-emerald-100' />Subscribed</button>
-            }
-        </div>
-    );
+    // const popularCard = (
+    //     <div id={subscription.id} className='relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4  shadow-sm hover:shadow-md transition-shadow'>
+    //         <ProductTag tag={subscription.tagType} popularSubscription={true}></ProductTag>
+    //         <IconDisplay icon={subscription.icon}></IconDisplay>
+    //         <h5 className='font-bold text-xl text-white'>{subscription.name}</h5>
+    //         <p className='font-medium text-white'>{subscription.description}</p>
+    //         <p className='text-white text-sm'>{`$`}<span className='font-bold text-2xl text-white'>{subscription.price}</span>{`/${subscription.period}`}</p>
+    //         <ul className='list-none h-full'>
+    //             {
+    //                 subscription.features.map((feature, index) => <ProductFeature key={index} feature={feature} popularSubscription={true}></ProductFeature>)
+    //             }
+    //         </ul>
+    //         {
+    //             !isThisSelected ?
+    //                 <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSelectedSubscriptions(subscription)} popularSubscription={true}></CustomButton> :
+    //                 <button className="btn rounded-2xl w-full bg-red-500 text-emerald-100" disabled>Unsubscribe</button>
+    //         }
+    //     </div>
+    // );
 
     return (
         <>
             {
                 !carousel ?
-                    subscription.tagType === "popular" ? popularCard : card :
-                    <div className='carousel-item shrink-0 w-full px-4'>{subscription.tagType === "popular" ? popularCard : card}</div>
+                    card :
+                    <div className='carousel-item shrink-0 w-full px-4'>{card}</div>
             }
         </>
     );

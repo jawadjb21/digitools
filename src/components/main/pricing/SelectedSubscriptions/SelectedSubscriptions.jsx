@@ -7,7 +7,6 @@ const SelectedSubscriptions = ({ selectedSubscriptions, setSelectedSubscriptions
     let total = 0;
     total = prices.map(price => total += Number(price));
     total = total.reverse();
-    console.log(total[0]);
     return (
         <div className='flex flex-col justify-center items-start text-left gap-y-3 md:gap-5 place-items-center mx-auto md:max-w-5xl px-5 mt-5'>
             <h6 className='font-bold text-xl'>Your Cart</h6>

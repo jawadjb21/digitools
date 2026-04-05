@@ -21,12 +21,13 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
             toast.success(`Subscribed to ${subscription.name} plan!`);
         }
     }
-    const handleUnsubscribe  = (subscription) => {
+    const handleUnsubscribe = (subscription) => {
         setSelectedSubscriptions([]);
-        toast.success(`Unsubscribed from ${subscription.name}`)
+        toast.success(`Unsubscribed from ${subscription.name} plan!`)
     }
     const card = (
-        <div id={subscription.id} className={`relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 ${subscription.tagType !== "popular" ? "bg-white" : "bg-linear-to-r from-[#4F39F6] to-[#627382]"} shadow-sm hover:shadow-md transition-shadow`}>
+        <div id={subscription.id} className={`relative h-full w-full flex flex-col gap-1 justify-start items-start border border-zinc-200 rounded-2xl text-left p-4 pb-16 ${subscription.tagType !== "popular" ? "bg-white" : "bg-linear-to-r from-[#4F39F6] to-[#627382]"} shadow-sm hover:shadow-md transition-shadow`}>
+            {subscription.tagType === "popular" && <ProductTag popularSubscription={subscription.tagType === "popular"} tag={subscription.tagType}></ProductTag>}
             <IconDisplay icon={subscription.icon}></IconDisplay>
             <h5 className={`font-bold text-xl ${subscription.tagType !== "popular" ? "text-zinc-800" : "text-white"}`}>{subscription.name}</h5>
             <p className={`font-medium ${subscription.tagType !== "popular" ? "text-zinc-500" : "text-white"}`}>{subscription.description}</p>
@@ -38,9 +39,14 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
             </ul>
             {
                 !isThisSelected ?
-                    <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSubscription(subscription)} popularSubscription={subscription.tag === "popular"}></CustomButton> :
-                    <button className="btn rounded-2xl w-full bg-red-500 text-emerald-100" onClick={() => {handleUnsubscribe(subscription)}}>Unsubscribe</button>
+                    <CustomButton text={"Subscribe"} forBuying={true} onClick={() => handleSubscription(subscription)} popularSubscription={subscription.tagType === "popular"}></CustomButton> :
+                    <button className="btn rounded-2xl w-full bg-red-500 text-emerald-100" onClick={() => { handleUnsubscribe(subscription) }}>Unsubscribe</button>
             }
+            {
+                carousel && <div className="absolute left-5 right-5 bottom-4 flex justify-between">
+                    <button className="btn btn-circle">❮</button>
+                    <button className="btn btn-circle">❯</button>
+                </div>}
         </div>
     );
 
@@ -69,7 +75,9 @@ const SubscriptionCard = ({ subscription, selectedSubscriptions, setSelectedSubs
             {
                 !carousel ?
                     card :
-                    <div className='carousel-item shrink-0 w-full px-4'>{card}</div>
+                    <div className='carousel-item relative shrink-0 w-full px-4'>
+                        {card}
+                    </div>
             }
         </>
     );
